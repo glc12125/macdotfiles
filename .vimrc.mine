@@ -1,0 +1,110 @@
+"
+" vim global settings
+"
+set term=screen-256color
+
+set nocompatible
+filetype off
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+" This is the Vundle package, which can be found on GitHub.
+" For GitHub repos, you specify plugins using the
+" 'user/repository' format
+Plugin 'gmarik/vundle'
+
+" We could also add repositories with a ".git" extension
+Plugin 'scrooloose/nerdtree.git'
+
+" Auto completion
+Plugin 'git@github.com:Valloric/YouCompleteMe.git'
+
+" color scheme
+Plugin 'flazz/vim-colorschemes'
+Plugin 'git@github.com:altercation/vim-colors-solarized.git'
+
+" Syntastic
+Plugin 'git@github.com:scrooloose/syntastic.git'
+
+" minibufexpl
+Plugin 'git@github.com:fholgado/minibufexpl.vim.git'
+
+" Now we can turn our filetype functionality back on
+filetype plugin indent on
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""" programmigng setup """""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" Disabling arrow keys for up/down/left/right
+
+nnoremap <up> <nop>
+nnoremap <down> <nop>
+nnoremap <left> <nop>
+nnoremap <right> <nop>
+
+"noremap <up> <nop>
+"noremap <down> <nop>
+"inoremap <left> <nop>
+"inoremap <right> <nop>
+
+" ruler at 80
+set colorcolumn=80
+
+" size of a hard tabstop
+set tabstop=4
+
+" size of an "indent"
+set shiftwidth=4
+
+" a combination of spaces and tabs are used to simulate tab stops at a width
+" " other than the (hard)tabstop
+set softtabstop=4
+
+" make "tab" insert indents instead of tabs at the beginning of a line
+set smarttab
+"
+" " always uses spaces instead of tab characters
+set expandtab
+
+"" auto format using astyle
+
+"" color scheme
+syntax enable
+set background=light
+let g:solarized_termcolors=256
+colorscheme solarized
+
+
+"
+"" YouCompleteMe options
+"
+let g:ycm_register_as_syntastic_checker = 0
+
+"
+"" Syntastic
+"
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+" MiniBufExplorer
+set splitbelow
+set splitright
+let g:miniBufExplBRSplit = 1
+noremap <C-J>     <C-W>j
+noremap <C-K>     <C-W>k
+noremap <C-H>     <C-W>h
+noremap <C-L>     <C-W>l
+
+" If you like <C-TAB> and <C-S-TAB> to switch buffers
+" in the current window then perform the remapping
+"
+noremap <C-TAB>   :MBEbn<CR>
+noremap <C-S-TAB> :MBEbp<CR>
+
